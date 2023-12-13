@@ -1,0 +1,6 @@
+DEBUG:__main__:method start
+DEBUG:__main__:Check finish, result = True for [1, 2, 1]
+INFO:__main__:Found an impossible triangle
+DEBUG:__main__:method start
+INFO:__main__:Found an impossible triangle
+DEBUG:__main__:Check finish, result = False for [1, 2, 9]
