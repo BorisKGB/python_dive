@@ -7,12 +7,47 @@
 
 Отсортируйте по убыванию значения количества повторяющихся слов.
 
+Реализовать получение пути до файла силами argparse, получение текста из файла и логирование хода выполнения
+
 ## Пример
 
 На входе:
 
-`text = 'Hello world. Hello Python. Hello again.'`
+`app.py file_path`
 
 На выходе:
 
 `[('hello', 3), ('world', 1), ('python', 1), ('again', 1)]`
+
+## Дополнительно реализованное
+
+```
+usage: word_freq.py [-h] [-top N] file
+
+Часто встречающиеся слова
+
+positional arguments:
+  file        Путь до файла для проверки
+
+options:
+  -h, --help  show this help message and exit
+  -top N      Вывести только N самых популярных
+```
+
+## Примеры запуска из консоли
+
+**Запуск выполнялся из linux консоли, для этого в файле создан заголовок `#!/usr/bin/env python3`, в windows требуется явно указывать интерпретатор**
+Файл sample.txt сгенерирован как lorem последовательность
+
+```
+$ ./word_freq.py sample.txt
+2023-12-13 21:03:31,131: __main__ - DEBUG - Из файла прочитано 40 слов
+[('et', 12), ('lorem', 6), ('ipsum', 6), ('dolor', 6), ('sit', 6), ('amet', 6), ('sed', 6), ('diam', 6), ('consetetur', 3), ('sadipscing', 3), ('elitr', 3), ('nonumy', 3), ('eirmod', 3), ('tempor', 3), ('invidunt', 3), ('ut', 3), ('labore', 3), ('dolore', 3), ('magna', 3), ('aliquyam', 3), ('erat', 3), ('voluptua', 3), ('at', 3), ('vero', 3), ('eos', 3), ('accusam', 3), ('justo', 3), ('duo', 3), ('dolores', 3), ('ea', 3), ('rebum', 3), ('stet', 3), ('clita', 3), ('kasd', 3), ('gubergren', 3), ('no', 3), ('sea', 3), ('takimata', 3), ('sanctus', 3), ('est', 3)]
+$ ./word_freq.py sample.txt -top 3
+2023-12-13 21:03:35,463: __main__ - DEBUG - Из файла прочитано 40 уникальных слов
+[('et', 12), ('lorem', 6), ('ipsum', 6)]
+$ ./word_freq.py not_exist
+2023-12-13 21:03:49,542: __main__ - ERROR - Ошибка доступа к файлу, подробнее -> [Errno 2] No such file or directory: 'not_exist'
+2023-12-13 21:03:49,542: __main__ - DEBUG - Из файла прочитано 0 уникальных слов
+[]
+```
